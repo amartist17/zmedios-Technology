@@ -5,7 +5,11 @@ const router = express.Router({ mergeParams: true });
 
 router.get("/", viewController.home);
 router.get("/about", viewController.about);
-router.get("/services", viewController.services);
+router.get("/services/web", viewController.web);
+router.get("/services/mobile", viewController.mobile);
+router.get("/services/graphics", viewController.graphics);
+router.get("/services/marketing", viewController.marketing);
+router.get("/services/datascience", viewController.dataScience);
 router.get("/contact", viewController.contact);
 
 
