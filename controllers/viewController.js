@@ -30,3 +30,6 @@ exports.about = async (req, res, next) => {
   res.status(200).render('about');
 };
 
+exports.terms = async (req, res, next) => {
+  res.status(200).render('terms');
+};
