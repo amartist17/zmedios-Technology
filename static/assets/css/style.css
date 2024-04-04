@@ -1918,8 +1918,9 @@ body:not(.is-mobile) .tt-style-switch:hover {
 @media (max-width: 1199px) {
   .header-area.style-1 .menu-wrap .nav-right .header-btn {
     padding: 14px 22px;
-    display: none;
-    visibility: hidden;
+    margin: 0 6px;
+    /* display: none;
+    visibility: hidden; */
   }
 }
 .header-area.style-1 .menu-wrap .nav-right .header-btn svg {
@@ -1950,12 +1951,12 @@ body:not(.is-mobile) .tt-style-switch:hover {
 .header-area.style-1 .menu-wrap .nav-right .header-btn:active {
   background-color: var(--white-color);
 }
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .header-area.style-1 .menu-wrap .nav-right .header-btn {
     display: none;
     visibility: hidden;
   }
-}
+} */
 .header-area.style-1 .menu-wrap .nav-right .mobile-menu-btn {
   display: none;
   visibility: hidden;
