@@ -1,5 +1,6 @@
 const express = require("express");
 const viewController = require('../controllers/viewController')
+const apiController = require('../controllers/apiController')
 const router = express.Router({ mergeParams: true });
 
 
@@ -12,6 +13,7 @@ router.get("/services/marketing", viewController.marketing);
 router.get("/services/datascience", viewController.dataScience);
 router.get("/contact", viewController.contact);
 router.get("/terms", viewController.terms);
+router.post("/subscribe", apiController.addToNewsletter);
 
 
 module.exports = router;
