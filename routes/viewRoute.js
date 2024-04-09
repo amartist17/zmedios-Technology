@@ -14,6 +14,8 @@ router.get("/services/datascience", viewController.dataScience);
 router.get("/contact", viewController.contact);
 router.get("/terms", viewController.terms);
 router.post("/subscribe", apiController.addToNewsletter);
+router.post("/needhelp", apiController.needhelp);
+router.post("/contact", apiController.contactform);
 
 
 module.exports = router;

@@ -90,52 +90,42 @@ business, its services.</p>
 </div>
 <div class="col-xl-8">
 <div class="contact-form-wrap">
-<form>
+<form id="contact-form">
 <div class="row">
 <div class="col-md-6">
 <div class="form-inner mb-30">
 <label>Full Name*</label>
-<input type="text" placeholder="Daniel Scoot">
+<input type="text" name="name" placeholder="Daniel Scoot" required>
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-inner mb-30">
 <label>Your Email*</label>
-<input type="email" placeholder="example@gamil.com">
+<input type="email" name="email" placeholder="example@gamil.com" required>
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-inner mb-30">
-<label>Phone Number <span>(Optional)</span></label>
-<input type="text" placeholder="+920- 5566 **** ****">
+<label>Phone Number*</label>
+<input type="text" name="phone" placeholder="+920- 5566 **** ****" required>
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-inner mb-30">
 <label>Subject</label>
-<input type="text" placeholder="Web Develop">
+<input type="text"  name="Subject" placeholder="Web Develop" required>
 </div>
 </div>
 <div class="col-md-12">
 <div class="form-inner mb-30">
 <label>How can We Help You?</label>
-<textarea placeholder="What’s on your mind"></textarea>
+<textarea placeholder="What’s on your mind" name="message" required></textarea>
 </div>
 </div>
-<div class="col-md-12 mb-50">
-<div class="form-inner2">
-<div class="form-check">
-<input class="form-check-input" type="checkbox" value id="contactCheck">
-<label class="form-check-label" for="contactCheck">
-Please save my name, email address for the next time I
-message.
-</label>
-</div>
-</div>
-</div>
+
 </div>
 <div class="form-inner">
-<button class="primary-btn3 btn-hover" type="submit">
+<button id="contact-submit-btn" class="primary-btn3 btn-hover" type="submit">
 Submit Now
 <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
 <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z">
@@ -158,9 +148,58 @@ Submit Now
 
 
 <%- include('footer') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#contact-form').submit(function(e) {
+            e.preventDefault(); // Prevent the default form submission
+    
+            var formData = $(this).serialize(); // Serialize the form data
+            var $submitButton = $('#contact-submit-btn'); // Cache the submit button by ID
+    
+            $.ajax({
+                type: "POST",
+                url: "/contact",
+                data: formData,
+                success: function(response) {
+                    // Change the button color to green and text to 'Message Sent'
+                    $submitButton.css({
+                        'background-color': '#28a745', // Green color
+                        'border-color': '#28a745'
+                    }).text('Message Sent').append('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z"></path></svg>');
+    
+                    // Clear the form fields
+                    $('#contact-form').trigger('reset');
+    
+                    // After 5 seconds, revert the button color and text
+                    setTimeout(function() {
+                        $submitButton.css({
+                            'background-color': '', // Revert to original color
+                            'border-color': ''
+                        }).text('Submit Now').append('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z"></path></svg>');
+                    }, 5000); // 5 seconds delay
+                },
+                error: function(xhr, status, error) {
+                    // Optionally handle the error. For example, change the button to red
+                    $submitButton.css({
+                        'background-color': '#dc3545', // Red color
+                        'border-color': '#dc3545'
+                    }).text('An error occurred').append('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z"></path></svg>');
+                    
+                    // Revert the button after some time
+                    setTimeout(function() {
+                        $submitButton.css({
+                            'background-color': '', // Revert to original color
+                            'border-color': ''
+                        }).text('Submit Now').append('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z"></path></svg>');
+                    }, 5000); // 5 seconds delay
+                }
+            });
+        });
+    });
+    </script>
+    
 
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
