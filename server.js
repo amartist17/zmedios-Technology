@@ -10,5 +10,5 @@ mongoose
   .then(() => console.log("Connection established"));
 
 app.listen(process.env.PORT || 5000, function () {
-  console.log("listening");
+  console.log("listening on 5000");
 });

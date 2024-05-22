@@ -33,3 +33,7 @@ exports.about = async (req, res, next) => {
 exports.terms = async (req, res, next) => {
   res.status(200).render('terms');
 };
+
+exports.hireDeveloper = async (req, res, next) => {
+  res.status(200).render('hire-developer');
+};
