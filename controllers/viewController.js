@@ -37,3 +37,7 @@ exports.terms = async (req, res, next) => {
 exports.hireDeveloper = async (req, res, next) => {
   res.status(200).render('hire-developer');
 };
+
+exports.getHired = async (req, res, next) => {
+  res.status(200).render('get-hired');
+};

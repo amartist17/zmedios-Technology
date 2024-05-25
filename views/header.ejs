@@ -2,11 +2,32 @@
     .hire-btn{
         font-family:var(--font-fahkwang) !important;
         border-radius: 20px;
+        margin: 8px;
+    }
+    .hire-btns-mobile{
+        display: none;
     }
     @media only screen and (max-width: 650px) {
         .hire-btns{
             display: none;
         }
+        .hire-btns-mobile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0%;
+        left: 0;
+        width: 100vw;
+        z-index: 100;
+        color: white;
+        background-color: #FFF;
+    }
+    .hire-btns-mobile a{
+        background-color: #F76532;
+        color: white;
+        padding: 20px 35px;
+    }
 }
 </style>
 
@@ -193,7 +214,7 @@
     <a href="/"><img alt="image" src="/assets/logo/logo.png"></a>
     </div>
     </div>
-    <ul class="menu-list">
+    <!-- <ul class="menu-list">
     <li class="menu-item-has-children active">
     <a href="/" class="drop-down">Home</a><i class="bi bi-plus dropdown-icon"></i>
     </li>
@@ -213,7 +234,7 @@
     <li><a href="/about">About Us</a></li>
 
     <li><a href="/contact">Contact Us</a></li>
-    </ul>
+    </ul> -->
     <div class="d-lg-none d-block">
     <ul class="topbar-right">
     <li>Sun-Tue (9:00 am-7.00 pm)</li>
@@ -314,4 +335,21 @@
         <br>
         <a class="side-icon" href="https://wa.me/919340609004"><i class="bi bi-whatsapp " ></i></a>
 
+        </div>
+
+        <div class="hire-btns-mobile">
+            <a href="/get-hired" class="header-btn hire-btn  btn-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z" />
+                </svg>
+                Get Hired
+                <span></span>
+                </a> 
+                <a href="/hire-developer" class="header-btn hire-btn  btn-hover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z" />
+                    </svg>
+                    Hire Developer
+                    <span></span>
+                    </a>
         </div>

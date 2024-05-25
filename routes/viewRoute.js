@@ -17,6 +17,7 @@ router.post("/subscribe", apiController.addToNewsletter);
 router.post("/needhelp", apiController.needhelp);
 router.post("/contact", apiController.contactform);
 router.get("/hire-developer", viewController.hireDeveloper);
+router.get("/get-hired", viewController.getHired);
 
 
 module.exports = router;
